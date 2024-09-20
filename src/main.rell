@@ -17,5 +17,9 @@ operation add_temperature(temperature: decimal) {
 query get_temperatures(addr: byte_array) {
     return temperature @* {
         .address == addr
-    };
+    } (
+        .address,
+        .temperature,
+        .created_at,
+    );
 }
