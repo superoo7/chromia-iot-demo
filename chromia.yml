@@ -1,0 +1,10 @@
+blockchains:
+  iot:
+    module: main
+compile:
+  rellVersion: 0.13.5
+database:
+  schema: schema_iot
+test:
+  modules:
+    - test

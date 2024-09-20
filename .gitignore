@@ -1,0 +1,5 @@
+build
+src/lib/*
+.chromia
+node_modules
+.DS_Store

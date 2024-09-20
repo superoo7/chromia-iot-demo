@@ -1,0 +1,21 @@
+module;
+
+entity temperature {
+    address: byte_array;
+    temperature: decimal;
+    created_at: integer = op_context.last_block_time;
+}
+
+operation add_temperature(temperature: decimal) {
+    val addr = op_context.get_signers()[0];
+    create temperature (
+        address = addr,
+        temperature,
+    );
+}
+
+query get_temperatures(addr: byte_array) {
+    return temperature @* {
+        .address == addr
+    };
+}
