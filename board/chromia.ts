@@ -1,4 +1,4 @@
-import postclient, {
+import {
   createClient,
   IClient,
   newSignatureProvider,
@@ -32,4 +32,14 @@ export async function addTemperature(temperature: number) {
     },
     signnatureProvider
   );
+}
+
+export async function getTemperature(addr: string) {
+  const client = await createLocalClient();
+  return await client.query({
+    name: "get_temperatures",
+    args: {
+      addr,
+    },
+  })
 }
